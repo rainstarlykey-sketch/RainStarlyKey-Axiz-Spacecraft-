@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>RainStarlyKey Axiz - Deep Space Vessel</title>
+
+    <script src="https://aframe.io/releases/1.8.0/aframe.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+<a-scene
+    background="color: #000006"
+    fog="type: exponential; color: #000006; density: 0.00035"
+    renderer="colorManagement: true">
+
+    <!-- ================================================= -->
+    <!-- LIGHTING -->
+    <!-- ================================================= -->
+
+    <a-light
+        type="ambient"
+        color="#d8eaff"
+        intensity="1.5">
+    </a-light>
+
+    <a-light
+        type="point"
+        position="0 5 2"
+        color="#ffffff"
+        intensity="3">
+    </a-light>
+
+    <a-light
+        type="point"
+        position="0 3 -3"
+        color="#00d9ff"
+        intensity="3">
+    </a-light>
+
+    <a-light
+        type="point"
+        position="-4 4 0"
+        color="#008cff"
+        intensity="2.5">
+    </a-light>
+
+    <a-light
+        type="point"
+        position="4 4 0"
+        color="#008cff"
+        intensity="2.5">
+    </a-light>
+
+
+    <!-- ================================================= -->
+    <!-- SPACE -->
+    <!-- ================================================= -->
+
+    <a-sky color="#000006"></a-sky>
+
+    <a-entity id="stars"></a-entity>
+
+
+    <!-- ================================================= -->
+    <!-- GALAXY CLOUDS -->
+    <!-- ================================================= -->
+
+    <a-sphere
+        position="0 30 -120"
+        radius="45"
+        color="#392060"
+        opacity="0.08"
+        material="transparent: true; shader: flat">
+    </a-sphere>
+
+    <a-sphere
+        position="-65 15 -145"
+        radius="38"
+        color="#164b78"
+        opacity="0.07"
+        material="transparent: true; shader: flat">
+    </a-sphere>
+
+    <a-sphere
+        position="65 -15 -170"
+        radius="45"
+        color="#662080"
+        opacity="0.06"
+        material="transparent: true; shader: flat">
+    </a-sphere>
+
+
+    <!-- ================================================= -->
+    <!-- SOLAR SYSTEM -->
+    <!-- ================================================= -->
+
+    <a-entity id="solarSystem" position="0 15 -75">
+
+
+        <!-- SUN -->
+
+        <a-sphere
+            position="0 0 0"
+            radius="7"
+            color="#ffd21c"
+            material="emissive: #ff9d00; emissiveIntensity: 1.5">
+        </a-sphere>
+
+        <a-sphere
+            position="0 0 0"
+            radius="8.5"
+            color="#ff8c00"
+            opacity="0.16"
+            material="transparent: true; shader: flat">
+        </a-sphere>
+
+        <a-text
+            value="SUN"
+            position="0 9 0"
+            align="center"
+            color="#fff4a0"
+            width="8"
+            scale="2 2 2">
+        </a-text>
+
+
+        <!-- ================================================= -->
+        <!-- MERCURY -->
+        <!-- ================================================= -->
+
+        <a-entity id="mercuryOrbit">
+
+            <a-entity position="11 0 0">
+
+                <a-sphere
+                    radius="0.9"
+                    color="#777777">
+                </a-sphere>
+
+                <a-sphere
+                    position="0.35 0.25 0.72"
+                    radius="0.2"
+                    color="#444444">
+                </a-sphere>
+
+                <a-sphere
+                    position="-0.35 -0.2 0.78"
+                    radius="0.15"
+                    color="#555555">
+                </a-sphere>
+
+                <a-text
+                    value="MERCURY"
+                    position="0 2.2 0"
+                    align="center"
+                    color="#ffffff"
+                    width="5"
+                    scale="2 2 2"
+                    look-at="#player">
+                </a-text>
+
+            </a-entity>
+
+        </a-entity>
+
+
+        <!-- ================================================= -->
+        <!-- VENUS -->
+        <!-- ================================================= -->
+
+        <a-entity id="venusOrbit">
+
+            <a-entity position="17 0 0">
+
+                <a-sphere
+                    radius="1.35"
+                    color="#d89a48"
+                    material="roughness: 0.9">
+                </a-sphere>
+
+                <a-torus
+                    radius="1.45"
+                    radius-tubular="0.08"
+                    rotation="90 0 0"
+                    color="#f2c66d">
+                </a-torus>
+
+                <a-text
+                    value="VENUS"
+                    position="0 2.8 0"
+                    align="center"
+                    color="#fff1bd"
+                    width="5.5"
+                    scale="2 2 2"
+                    look-at="#player">
+                </a-text>
+
+            </a-entity>
+
+        </a-entity>
+
+
+        <!-- ================================================= -->
+        <!-- EARTH -->
+        <!-- ================================================= -->
+
+        <a-entity id="earthOrbit">
+
+            <a-entity
+                id="earth"
+                position="25 0 0"
+                rotation="0 0 0">
+
+                <!-- OCEAN -->
+
+                <a-sphere
+                    radius="4"
+                    color="#176fc1"
+                    material="roughness: 0.75">
+                </a-sphere>
+
+
+                <!-- NORTH AMERICA -->
+
+                <a-sphere
+                    position="-1.8 1.7 3.15"
+                    scale="1.35 0.9 0.32"
+                    radius="1"
+                    color="#4f8739">
+                </a-sphere>
+
+                <a-sphere
+                    position="-2.35 0.75 3.05"
+                    scale="0.7 1.1 0.28"
+                    radius="1"
+                    color="#6c9b45">
+                </a-sphere>
+
+                <a-sphere
+                    position="-1.7 1.9 3.42"
+                    scale="0.5 0.3 0.12"
+                    radius="1"
+                    color="#8c6034">
+                </a-sphere>
+
+
+                <!-- SOUTH AMERICA -->
+
+                <a-sphere
+                    position="-0.75 -1.45 3.35"
+                    scale="0.68 1.7 0.3"
+                    radius="1"
+                    color="#4d8f38">
+                </a-sphere>
+
+                <a-sphere
+                    position="-0.5 -1.65 3.55"
+                    scale="0.3 0.8 0.12"
+                    radius="1"
+                    color="#8b6334">
+                </a-sphere>
+
+
+                <!-- EUROPE -->
+
+                <a-sphere
+                    position="0.55 1.75 3.55"
+                    scale="0.75 0.48 0.24"
+                    radius="1"
+                    color="#6e9d45">
+                </a-sphere>
+
+
+                <!-- AFRICA -->
+
+                <a-sphere
+                    position="0.8 0.25 3.55"
+                    scale="1.05 1.55 0.32"
+                    radius="1"
+                    color="#a8753c">
+                </a-sphere>
+
+                <a-sphere
+                    position="0.45 0.65 3.82"
+                    scale="0.35 0.65 0.1"
+                    radius="1"
+                    color="#6e963b">
+                </a-sphere>
+
+
+                <!-- ASIA -->
+
+                <a-sphere
+                    position="2 1.25 3"
+                    scale="1.85 0.9 0.3"
+                    radius="1"
+                    color="#688f3e">
+                </a-sphere>
+
+                <a-sphere
+                    position="2.7 1.6 3.2"
+                    scale="0.75 0.45 0.12"
+                    radius="1"
+                    color="#a87a42">
+                </a-sphere>
+
+
+                <!-- AUSTRALIA -->
+
+                <a-sphere
+                    position="2.15 -1.75 3"
+                    scale="1.05 0.62 0.27"
+                    radius="1"
+                    color="#b67b3c">
+                </a-sphere>
+
+                <a-sphere
+                    position="2.1 -1.72 3.25"
+                    scale="0.55 0.3 0.1"
+                    radius="1"
+                    color="#62913d">
+                </a-sphere>
+
+
+                <!-- ANTARCTICA -->
+
+                <a-sphere
+                    position="0 -3.35 2.8"
+                    scale="2.15 0.38 0.3"
+                    radius="1"
+                    color="#f4f8ff">
+                </a-sphere>
+
+
+                <!-- CLOUDS -->
+
+                <a-sphere
+                    position="-2.1 2.2 3.4"
+                    scale="1.2 0.3 0.18"
+                    radius="1"
+                    color="#ffffff"
+                    opacity="0.85">
+                </a-sphere>
+
+                <a-sphere
+                    position="1.7 -0.7 3.5"
+                    scale="1.1 0.25 0.15"
+                    radius="1"
+                    color="#ffffff"
+                    opacity="0.8">
+                </a-sphere>
+
+                <a-sphere
+                    position="-0.4 -2.1 3.35"
+                    scale="0.9 0.2 0.12"
+                    radius="1"
+                    color="#ffffff"
+                    opacity="0.8">
+                </a-sphere>
+
+                <a-sphere
+                    position="2.5 0.4 3.2"
+                    scale="0.9 0.25 0.14"
+                    radius="1"
+                    color="#ffffff"
+                    opacity="0.8">
+                </a-sphere>
+
+
+                <!-- ATMOSPHERE -->
+
+                <a-sphere
+                    radius="4.3"
+                    color="#55dfff"
+                    opacity="0.14"
+                    material="transparent: true; shader: flat">
+                </a-sphere>
+
+
+                <!-- HUGE EARTH LABEL -->
+
+                <a-text
+                    value="EARTH"
+                    position="0 6 0"
+                    align="center"
+                    color="#ffffff"
+                    width="8"
+                    scale="2.5 2.5 2.5"
+                    look-at="#player">
+                </a-text>
+
+            </a-entity>
+
+        </a-entity>
+
+
+        <!-- ================================================= -->
+        <!-- MARS -->
+        <!-- ================================================= -->
+
+        <a-entity id="marsOrbit">
+
+            <a-entity position="34 0 0">
+
+                <a-sphere
+                    radius="2.1"
+                    color="#b94b35">
+                </a-sphere>
+
+                <a-sphere
+                    position="0.7 0.6 1.75"
+                    radius="0.35"
+                    color="#73362b">
+                </a-sphere>
+
+                <a-sphere
+                    position="-0.8 -0.5 1.8"
+                    radius="0.28"
+                    color="#83372d">
+                </a-sphere>
+
+                <a-sphere
+                    position="0 -1 1.7"
+                    radius="0.2"
+                    color="#6e3028">
+                </a-sphere>
+
+                <a-text
+                    value="MARS"
+                    position="0 4.2 0"
+                    align="center"
+                    color="#ff9c75"
+                    width="6"
+                    scale="2.2 2.2 2.2"
+                    look-at="#player">
+                </a-text>
+
+            </a-entity>
+
+        </a-entity>
+
+
+        <!-- ================================================= -->
+        <!-- JUPITER -->
+        <!-- ================================================= -->
+
+        <a-entity id="jupiterOrbit">
+
+            <a-entity position="45 0 0">
+
+                <a-sphere
+                    radius="4.6"
+                    color="#c59b72">
+                </a-sphere>
+
+                <a-torus
+                    radius="3.5"
+                    radius-tubular="0.25"
+                    rotation="0 0 90"
+                    color="#a97d59">
+                </a-torus>
+
+                <a-torus
+                    radius="4.0"
+                    radius-tubular="0.22"
+                    rotation="0 0 90"
+                    color="#e1bd91">
+                </a-torus>
+
+                <a-sphere
+                    position="2.7 -0.8 3.4"
+                    scale="1.1 0.65 0.25"
+                    radius="1"
+                    color="#a94235">
+                </a-sphere>
+
+                <a-text
+                    value="JUPITER"
+                    position="0 6.2 0"
+                    align="center"
+                    color="#ffe0bc"
+                    width="7"
+                    scale="2.3 2.3 2.3"
+                    look-at="#player">
+                </a-text>
+
+            </a-entity>
+
+        </a-entity>
+
+
+        <!-- ================================================= -->
+        <!-- SATURN -->
+        <!-- ================================================= -->
+
+        <a-entity id="saturnOrbit">
+
+            <a-entity position="58 0 0">
+
+                <a-sphere
+                    radius="3.7"
+                    color="#d4b277">
+                </a-sphere>
+
+                <a-torus
+                    radius="5"
+                    radius-tubular="0.22"
+                    rotation="70 0 15"
+                    color="#e5c992">
+                </a-torus>
+
+                <a-torus
+                    radius="5.8"
+                    radius-tubular="0.16"
+                    rotation="70 0 15"
+                    color="#b89a68">
+                </a-torus>
+
+                <a-torus
+                    radius="6.5"
+                    radius-tubular="0.11"
+                    rotation="70 0 15"
+                    color="#f0d9a4">
+                </a-torus>
+
+                <a-text
+                    value="SATURN"
+                    position="0 6.5 0"
+                    align="center"
+                    color="#ffe8ae"
+                    width="7"
+                    scale="2.3 2.3 2.3"
+                    look-at="#player">
+                </a-text>
+
+            </a-entity>
+
+        </a-entity>
+
+
+        <!-- ================================================= -->
+        <!-- URANUS -->
+        <!-- ================================================= -->
+
+        <a-entity id="uranusOrbit">
+
+            <a-entity position="-40 0 -8">
+
+                <a-sphere
+                    radius="2.6"
+                    color="#73d8df">
+                </a-sphere>
+
+                <a-torus
+                    radius="3.4"
+                    radius-tubular="0.12"
+                    rotation="70 0 0"
+                    color="#a7ffff">
+                </a-torus>
+
+                <a-text
+                    value="URANUS"
+                    position="0 4.5 0"
+                    align="center"
+                    color="#aaffff"
+                    width="7"
+                    scale="2.3 2.3 2.3"
+                    look-at="#player">
+                </a-text>
+
+            </a-entity>
+
+        </a-entity>
+
+
+        <!-- ================================================= -->
+        <!-- NEPTUNE -->
+        <!-- ================================================= -->
+
+        <a-entity id="neptuneOrbit">
+
+            <a-entity position="-53 0 -12">
+
+                <a-sphere
+                    radius="2.8"
+                    color="#356dcc">
+                </a-sphere>
+
+                <a-sphere
+                    position="0.7 0.5 2.3"
+                    scale="0.8 0.35 0.15"
+                    radius="1"
+                    color="#6c94e8">
+                </a-sphere>
+
+                <a-text
+                    value="NEPTUNE"
+                    position="0 4.8 0"
+                    align="center"
+                    color="#83b7ff"
+                    width="7"
+                    scale="2.3 2.3 2.3"
+                    look-at="#player">
+                </a-text>
+
+            </a-entity>
+
+        </a-entity>
+
+    </a-entity>
+
+
+    <!-- ================================================= -->
+    <!-- UFO 1 -->
+    <!-- ================================================= -->
+
+    <a-entity id="ufo1" position="-18 7 -45">
+
+        <a-sphere
+            radius="1.2"
+            scale="1.8 0.35 1"
+            color="#707b8c"
+            material="metalness: 0.8; roughness: 0.25">
+        </a-sphere>
+
+        <a-sphere
+            position="0 0.35 0"
+            radius="0.55"
+            scale="1 0.65 1"
+            color="#82d9ff"
+            material="emissive: #008cff; emissiveIntensity: 0.5">
+        </a-sphere>
+
+        <a-sphere position="-1.2 -0.15 0" radius="0.12" color="#00ffff"></a-sphere>
+        <a-sphere position="-0.6 -0.25 0" radius="0.12" color="#ffffff"></a-sphere>
+        <a-sphere position="0 -0.28 0" radius="0.12" color="#00ffff"></a-sphere>
+        <a-sphere position="0.6 -0.25 0" radius="0.12" color="#ffffff"></a-sphere>
+        <a-sphere position="1.2 -0.15 0" radius="0.12" color="#00ffff"></a-sphere>
+
+    </a-entity>
+
+
+    <!-- ================================================= -->
+    <!-- UFO 2 -->
+    <!-- ================================================= -->
+
+    <a-entity id="ufo2" position="15 4 -65">
+
+        <a-sphere
+            radius="0.9"
+            scale="1.8 0.35 1"
+            color="#596675"
+            material="metalness: 0.8">
+        </a-sphere>
+
+        <a-sphere
+            position="0 0.3 0"
+            radius="0.4"
+            color="#b8f1ff"
+            material="emissive: #00aaff; emissiveIntensity: 0.6">
+        </a-sphere>
+
+        <a-sphere position="-1 -0.15 0" radius="0.1" color="#ff3333"></a-sphere>
+        <a-sphere position="0 -0.25 0" radius="0.1" color="#00ffff"></a-sphere>
+        <a-sphere position="1 -0.15 0" radius="0.1" color="#ff3333"></a-sphere>
+
+    </a-entity>
+
+
+    <!-- ================================================= -->
+    <!-- UFO 3 -->
+    <!-- ================================================= -->
+
+    <a-entity id="ufo3" position="10 10 -110">
+
+        <a-sphere
+            radius="1"
+            scale="1.7 0.32 1"
+            color="#778291">
+        </a-sphere>
+
+        <a-sphere
+            position="0 0.3 0"
+            radius="0.45"
+            color="#b9f5ff"
+            material="emissive: #00eaff; emissiveIntensity: 0.7">
+        </a-sphere>
+
+        <a-sphere position="-1 -0.1 0" radius="0.1" color="#ffffff"></a-sphere>
+        <a-sphere position="0 -0.2 0" radius="0.1" color="#00ffff"></a-sphere>
+        <a-sphere position="1 -0.1 0" radius="0.1" color="#ffffff"></a-sphere>
+
+    </a-entity>
+
+
+    <!-- ================================================= -->
+    <!-- FUTURISTIC RAINSTARLYKEY AXIZ COCKPIT -->
+    <!-- ================================================= -->
+
+    <!-- FLOOR -->
+
+    <a-box
+        position="0 0 0"
+        width="11"
+        height="0.25"
+        depth="16"
+        color="#25344a">
+    </a-box>
+
+
+    <!-- SIDE WALLS -->
+
+    <a-box
+        position="-5 3 -2"
+        width="0.3"
+        height="6"
+        depth="12"
+        rotation="0 10 0"
+        color="#34465f">
+    </a-box>
+
+    <a-box
+        position="5 3 -2"
+        width="0.3"
+        height="6"
+        depth="12"
+        rotation="0 -10 0"
+        color="#34465f">
+    </a-box>
+
+
+    <!-- INNER TECH PANELS -->
+
+    <a-box
+        position="-4.55 3 -1"
+        width="0.15"
+        height="4"
+        depth="9"
+        color="#162c45">
+    </a-box>
+
+    <a-box
+        position="4.55 3 -1"
+        width="0.15"
+        height="4"
+        depth="9"
+        color="#162c45">
+    </a-box>
+
+
+    <!-- ================================================= -->
+    <!-- OBSERVATION WINDSHIELD -->
+    <!-- ================================================= -->
+
+    <a-box
+        position="0 3.6 -7.2"
+        width="8.5"
+        height="4.7"
+        depth="0.18"
+        color="#071c2b"
+        opacity="0.65"
+        material="transparent: true">
+    </a-box>
+
+
+    <!-- WINDSHIELD FRAME -->
+
+    <a-box
+        position="-4.3 3.6 -7"
+        width="0.3"
+        height="5.2"
+        depth="0.4"
+        color="#263d55">
+    </a-box>
+
+    <a-box
+        position="4.3 3.6 -7"
+        width="0.3"
+        height="5.2"
+        depth="0.4"
+        color="#263d55">
+    </a-box>
+
+    <a-box
+        position="0 6.1 -7"
+        width="8.9"
+        height="0.3"
+        depth="0.4"
+        color="#263d55">
+    </a-box>
+
+    <a-box
+        position="0 1.05 -7"
+        width="8.9"
+        height="0.3"
+        depth="0.4"
+        color="#263d55">
+    </a-box>
+
+
+    <!-- ================================================= -->
+    <!-- BRANDING ON WINDSHIELD -->
+    <!-- ================================================= -->
+
+    <a-text
+        value="RAINSTARLYKEY AXIZ"
+        position="0 5.55 -7.05"
+        align="center"
+        color="#ffffff"
+        width="8"
+        scale="2 2 2"
+        material="shader: flat">
+    </a-text>
+
+    <a-text
+        value="OBSERVATION WINDSHIELD"
+        position="0 5.05 -7.05"
+        align="center"
+        color="#69eaff"
+        width="5"
+        scale="1.5 1.5 1.5">
+    </a-text>
+
+
+    <!-- ================================================= -->
+    <!-- PILOT CHAIR -->
+    <!-- ================================================= -->
+
+    <a-box
+        position="0 0.7 1.8"
+        width="2.4"
+        height="1.1"
+        depth="1.8"
+        color="#182536">
+    </a-box>
+
+    <a-box
+        position="0 2 2.4"
+        width="2.3"
+        height="2.8"
+        depth="0.45"
+        color="#202f43">
+    </a-box>
+
+    <a-cylinder
+        position="-1.2 1.3 1.8"
+        radius="0.12"
+        height="1.5"
+        color="#00bfff">
+    </a-cylinder>
+
+    <a-cylinder
+        position="1.2 1.3 1.8"
+        radius="0.12"
+        height="1.5"
+        color="#00bfff">
+    </a-cylinder>
+
+
+    <!-- ================================================= -->
+    <!-- MIKEO -->
+    <!-- ================================================= -->
+
+    <a-entity id="mikeo" position="0 1 1">
+
+        <!-- BODY -->
+
+        <a-cylinder
+            position="0 0.4 0"
+            radius="0.48"
+            height="1.2"
+            color="#e4e8ec">
+        </a-cylinder>
+
+        <!-- CHEST -->
+
+        <a-box
+            position="0 0.45 -0.42"
+            width="0.55"
+            height="0.45"
+            depth="0.08"
+            color="#172b40">
+        </a-box>
+
+        <a-text
+            value="MIKEO"
+            position="0 0.45 -0.48"
+            align="center"
+            color="#00eaff"
+            width="1.7">
+        </a-text>
+
+
+        <!-- HEAD -->
+
+        <a-sphere
+            position="0 1.3 0"
+            radius="0.42"
+            color="#e4e8ec">
+        </a-sphere>
+
+        <!-- VISOR -->
+
+        <a-sphere
+            position="0 1.34 -0.37"
+            radius="0.28"
+            scale="1 0.65 0.25"
+            color="#071b2c"
+            material="metalness: 0.8; roughness: 0.15">
+        </a-sphere>
+
+
+        <!-- LEFT ARM -->
+
+        <a-cylinder
+            position="-0.52 0.45 -0.25"
+            radius="0.13"
+            height="1.1"
+            rotation="0 0 65"
+            color="#dce3e8">
+        </a-cylinder>
+
+
+        <!-- RIGHT ARM -->
+
+        <a-cylinder
+            position="0.52 0.45 -0.25"
+            radius="0.13"
+            height="1.1"
+            rotation="0 0 -65"
+            color="#dce3e8">
+        </a-cylinder>
+
+
+        <!-- LEGS -->
+
+        <a-cylinder
+            position="-0.25 -0.3 0"
+            radius="0.16"
+            height="1.3"
+            color="#b9c5ce">
+        </a-cylinder>
+
+        <a-cylinder
+            position="0.25 -0.3 0"
+            radius="0.16"
+            height="1.3"
+            color="#b9c5ce">
+        </a-cylinder>
+
+    </a-entity>
+
+
+    <!-- ================================================= -->
+    <!-- MAIN CONTROL CONSOLE -->
+    <!-- ================================================= -->
+
+    <a-box
+        position="0 1.55 -0.8"
+        width="7.5"
+        height="1.1"
+        depth="1.1"
+        color="#17283b">
+    </a-box>
+
+
+    <!-- LEFT SCREEN -->
+
+    <a-box
+        position="-2.3 2.05 -1.38"
+        width="1.8"
+        height="0.85"
+        depth="0.08"
+        color="#06131f">
+    </a-box>
+
+    <a-text
+        value="EARTH TRACKING"
+        position="-2.3 2.15 -1.44"
+        align="center"
+        color="#00eaff"
+        width="2.5">
+    </a-text>
+
+    <a-text
+        value="DISTANCE 1.00 AU"
+        position="-2.3 1.92 -1.44"
+        align="center"
+        color="#7dffbd"
+        width="1.8">
+    </a-text>
+
+
+    <!-- CENTER SCREEN -->
+
+    <a-box
+        position="0 2.05 -1.38"
+        width="1.8"
+        height="0.85"
+        depth="0.08"
+        color="#06131f">
+    </a-box>
+
+    <a-text
+        value="OXYGEN"
+        position="0 2.15 -1.44"
+        align="center"
+        color="#7dffbd"
+        width="2.5">
+    </a-text>
+
+    <a-text
+        value="98%"
+        position="0 1.92 -1.44"
+        align="center"
+        color="#ffffff"
+        width="2.3">
+    </a-text>
+
+
+    <!-- RIGHT SCREEN -->
+
+    <a-box
+        position="2.3 2.05 -1.38"
+        width="1.8"
+        height="0.85"
+        depth="0.08"
+        color="#06131f">
+    </a-box>
+
+    <a-text
+        value="AXIZ ONLINE"
+        position="2.3 2.15 -1.44"
+        align="center"
+        color="#ffdc63"
+        width="2.5">
+    </a-text>
+
+    <a-text
+        value="SYSTEM OK"
+        position="2.3 1.92 -1.44"
+        align="center"
+        color="#7dffbd"
+        width="1.8">
+    </a-text>
+
+
+    <!-- ================================================= -->
+    <!-- BUTTONS -->
+    <!-- ================================================= -->
+
+    <a-cylinder
+        position="-2.7 1.35 -1.5"
+        radius="0.15"
+        height="0.12"
+        rotation="90 0 0"
+        color="#00eaff">
+    </a-cylinder>
+
+    <a-cylinder
+        position="-2.2 1.35 -1.5"
+        radius="0.15"
+        height="0.12"
+        rotation="90 0 0"
+        color="#ff4545">
+    </a-cylinder>
+
+    <a-cylinder
+        position="-1.7 1.35 -1.5"
+        radius="0.15"
+        height="0.12"
+        rotation="90 0 0"
+        color="#7dffbd">
+    </a-cylinder>
+
+    <a-cylinder
+        position="1.7 1.35 -1.5"
+        radius="0.15"
+        height="0.12"
+        rotation="90 0 0"
+        color="#ffdc63">
+    </a-cylinder>
+
+    <a-cylinder
+        position="2.2 1.35 -1.5"
+        radius="0.15"
+        height="0.12"
+        rotation="90 0 0"
+        color="#00eaff">
+    </a-cylinder>
+
+    <a-cylinder
+        position="2.7 1.35 -1.5"
+        radius="0.15"
+        height="0.12"
+        rotation="90 0 0"
+        color="#ff4545">
+    </a-cylinder>
+
+
+    <!-- ================================================= -->
+    <!-- LEFT NAVIGATION PANEL -->
+    <!-- ================================================= -->
+
+    <a-box
+        position="-4.2 2.5 -0.2"
+        width="0.15"
+        height="2.8"
+        depth="3"
+        color="#10283e">
+    </a-box>
+
+    <a-text
+        value="NAVIGATION"
+        position="-4.1 3.4 -1.7"
+        rotation="0 90 0"
+        color="#00eaff"
+        width="3">
+    </a-text>
+
+    <a-cylinder
+        position="-4.05 2.8 -1.1"
+        radius="0.18"
+        height="0.12"
+        rotation="0 0 90"
+        color="#00ffff">
+    </a-cylinder>
+
+    <a-cylinder
+        position="-4.05 2.2 -1.1"
+        radius="0.18"
+        height="0.12"
+        rotation="0 0 90"
+        color="#ffdc63">
+    </a-cylinder>
+
+    <a-cylinder
+        position="-4.05 1.6 -1.1"
+        radius="0.18"
+        height="0.12"
+        rotation="0 0 90"
+        color="#ff4444">
+    </a-cylinder>
+
+
+    <!-- ================================================= -->
+    <!-- RIGHT THRUST PANEL -->
+    <!-- ================================================= -->
+
+    <a-box
+        position="4.2 2.5 -0.2"
+        width="0.15"
+        height="2.8"
+        depth="3"
+        color="#10283e">
+    </a-box>
+
+    <a-text
+        value="THRUST"
+        position="4.1 3.4 -1.7"
+        rotation="0 -90 0"
+        color="#00eaff"
+        width="3">
+    </a-text>
+
+    <a-cylinder
+        position="4.05 2.8 -1.1"
+        radius="0.18"
+        height="0.12"
+        rotation="0 0 90"
+        color="#7dffbd">
+    </a-cylinder>
+
+    <a-cylinder
+        position="4.05 2.2 -1.1"
+        radius="0.18"
+        height="0.12"
+        rotation="0 0 90"
+        color="#00eaff">
+    </a-cylinder>
+
+    <a-cylinder
+        position="4.05 1.6 -1.1"
+        radius="0.18"
+        height="0.12"
+        rotation="0 0 90"
+        color="#ffdc63">
+    </a-cylinder>
+
+
+    <!-- ================================================= -->
+    <!-- CEILING -->
+    <!-- ================================================= -->
+
+    <a-box
+        position="0 6.2 -1"
+        width="10"
+        height="0.25"
+        depth="12"
+        color="#17283b">
+    </a-box>
+
+
+    <!-- CEILING LIGHTS -->
+
+    <a-box
+        position="-3 5.95 -3"
+        width="2.2"
+        height="0.12"
+        depth="0.4"
+        color="#00d9ff"
+        material="emissive: #00d9ff; emissiveIntensity: 1">
+    </a-box>
+
+    <a-box
+        position="3 5.95 -3"
+        width="2.2"
+        height="0.12"
+        depth="0.4"
+        color="#00d9ff"
+        material="emissive: #00d9ff; emissiveIntensity: 1">
+    </a-box>
+
+
+    <!-- ================================================= -->
+    <!-- REAR BRANDING -->
+    <!-- ================================================= -->
+
+    <a-text
+        value="RAINSTARLYKEY AXIZ"
+        position="0 4.7 6.8"
+        rotation="0 180 0"
+        align="center"
+        color="#00eaff"
+        width="7">
+    </a-text>
+
+    <a-text
+        value="DEEP SPACE EXPLORATION VESSEL"
+        position="0 4.2 6.8"
+        rotation="0 180 0"
+        align="center"
+        color="#a9c8dd"
+        width="4">
+    </a-text>
+
+
+    <!-- ================================================= -->
+    <!-- PLAYER -->
+    <!-- ================================================= -->
+
+    <a-entity
+        id="player"
+        position="0 2.4 5"
+        wasd-controls="acceleration: 12"
+        look-controls>
+
+        <a-camera></a-camera>
+
+    </a-entity>
+
+</a-scene>
+
+
+<!-- ================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ================================================= -->
+
+<script>
+
+    /* ========================================= */
+    /* STARFIELD */
+    /* ========================================= */
+
+    const starContainer = document.querySelector("#stars");
+
+    for (let i = 0; i < 1500; i++) {
+
+        const star = document.createElement("a-sphere");
+
+        const x = (Math.random() - 0.5) * 250;
+        const y = (Math.random() - 0.5) * 180;
+        const z = -Math.random() * 220;
+
+        const size = Math.random() * 0.08 + 0.025;
+
+        const colors = [
+            "#ffffff",
+            "#bdefff",
+            "#8ed8ff",
+            "#d7baff",
+            "#fff2b0"
+        ];
+
+        star.setAttribute("position", `${x} ${y} ${z}`);
+        star.setAttribute("radius", size);
+        star.setAttribute(
+            "color",
+            colors[Math.floor(Math.random() * colors.length)]
+        );
+
+        starContainer.appendChild(star);
+    }
+
+
+    /* ========================================= */
+    /* PLANET ORBITS */
+    /* ========================================= */
+
+    const orbitData = [
+
+        ["mercuryOrbit", 0.00040],
+        ["venusOrbit",   0.00028],
+        ["earthOrbit",   0.00020],
+        ["marsOrbit",    0.00015],
+        ["jupiterOrbit", 0.00009],
+        ["saturnOrbit",  0.000065],
+        ["uranusOrbit",  0.00005],
+        ["neptuneOrbit", 0.000035]
+
+    ];
+
+    const orbits = [];
+
+    orbitData.forEach(function(data) {
+
+        const object = document.querySelector("#" + data[0]);
+
+        if (object) {
+            orbits.push({
+                object: object,
+                speed: data[1]
+            });
+        }
+
+    });
+
+
+    /* ========================================= */
+    /* UFO MOVEMENT */
+    /* ========================================= */
+
+    const ufo1 = document.querySelector("#ufo1");
+    const ufo2 = document.querySelector("#ufo2");
+    const ufo3 = document.querySelector("#ufo3");
+
+    let ufo1X = -25;
+    let ufo2X = 25;
+    let ufo3X = -30;
+
+    let ufoTime = 0;
+
+
+    /* ========================================= */
+    /* MAIN ANIMATION LOOP */
+    /* ========================================= */
+
+    function animateSpace() {
+
+        const time = performance.now();
+
+
+        /* PLANET ORBITS */
+
+        orbits.forEach(function(item) {
+
+            item.object.object3D.rotation.y =
+                time * item.speed;
+
+        });
+
+
+        /* EARTH ROTATION */
+
+        const earth = document.querySelector("#earth");
+
+        if (earth) {
+
+            earth.object3D.rotation.y =
+                time * 0.00018;
+
+        }
+
+
+        /* UFO 1 */
+
+        ufo1X += 0.035;
+
+        if (ufo1X > 35) {
+            ufo1X = -35;
+        }
+
+        ufo1.object3D.position.x = ufo1X;
+
+        ufo1.object3D.position.y =
+            7 + Math.sin(time * 0.0015) * 1.2;
+
+        ufo1.object3D.rotation.y =
+            time * 0.001;
+
+
+        /* UFO 2 */
+
+        ufo2X -= 0.027;
+
+        if (ufo2X < -35) {
+            ufo2X = 35;
+        }
+
+        ufo2.object3D.position.x = ufo2X;
+
+        ufo2.object3D.position.y =
+            4 + Math.sin(time * 0.0018) * 0.8;
+
+        ufo2.object3D.rotation.y =
+            -time * 0.0015;
+
+
+        /* UFO 3 */
+
+        ufo3X += 0.02;
+
+        if (ufo3X > 40) {
+            ufo3X = -40;
+        }
+
+        ufo3.object3D.position.x = ufo3X;
+
+        ufo3.object3D.position.y =
+            10 + Math.sin(time * 0.0012) * 1.5;
+
+        ufo3.object3D.rotation.y =
+            time * 0.0008;
+
+
+        requestAnimationFrame(animateSpace);
+
+    }
+
+    animateSpace();
+
+</script>
+
+</body>
+</html>
